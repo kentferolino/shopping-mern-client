@@ -8,7 +8,7 @@ import { getItems, deleteItem } from '../actions/itemActions';
 import PropTypes from 'prop-types';
 
 class ShoppingList extends Component {
-  componentDidCatch() {
+  componentDidMount() {
     this.props.getItems();
   }
 
@@ -19,16 +19,16 @@ class ShoppingList extends Component {
         <ListGroup>
           <TransitionGroup className="shopping-list">
             {items.map(item => (
-              <CSSTransition key={item.id} timeout={500} classNames="fade">
+              <CSSTransition key={item._id} timeout={500} classNames="fade">
                 <ListGroupItem>
                   <Button
                     className="remove-btn"
                     color="danger"
                     size="sm"
-                    onClick={() => this.onDeleteClick(item.id)}
+                    onClick={() => this.onDeleteClick(item._id)}
                   >
                     &times;
-                  </Button>{' '}
+                  </Button>
                   {item.name}
                 </ListGroupItem>
               </CSSTransition>

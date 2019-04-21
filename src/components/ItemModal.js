@@ -10,7 +10,6 @@ import {
   Input
 } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import uuid from 'uuid';
 
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
@@ -32,7 +31,7 @@ class ItemModal extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const newItem = { id: uuid(), name: this.state.name };
+    const newItem = { name: this.state.name };
     this.props.addItem(newItem);
     this.toggle();
   };
